@@ -8,14 +8,21 @@ Write a function named greeting that takes in a string and returns the string in
 Then, write a function named speaker that takes in a string and a callback function. The speaker function should return the string in all uppercase letters only by invoking the callback.
 ------------------------------------------------------------------------------------------------ */
 
+/* describe('Testing challenge 1', () => {
+  test('It should return the message with all uppercase characters', () => {
+    expect(speaker('hello 301 students!', greeting)).toStrictEqual('HELLO 301 STUDENTS!');
+  });
+}); */
+
+
+
 const greeting = (word) => {
-  toUpperCase();
+  const capital = word.toUpperCase();
+  return capital;
 };
 
-console.log(greeting);
-
 const speaker = (message, callback) => {
-  // Solution code here...
+  return greeting(message);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -34,12 +41,25 @@ Within the addNumbers function, invoke the callback function as many times as ne
 Return the modified array.
 ------------------------------------------------------------------------------------------------ */
 
+/* describe('Testing challenge 2', () => {
+  test('It should add the number 8 to the array five times', () => {
+    expect(addNumbers(8, [], 5, addValues)).toStrictEqual([8, 8, 8, 8, 8]);
+    expect(addNumbers(8, [], 5, addValues).length).toStrictEqual(5);
+  });
+}); */
+
+
+
 const addValues = (arr, value) => {
-  // Solution code here...
+  arr.push(value);
 };
 
 const addNumbers = (num, arr, times, callback) => {
-  // Solution code here...
+  let i;
+  for (i = 0; i < times; i++) {
+  addValues(arr, num);
+}
+return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -59,10 +79,29 @@ The inventory is formatted like this:
 
 This function should use forEach to populate your grocery list based on the store's inventory. If the item is available, add it to your list. Return the final list.
 ------------------------------------------------------------------------------------------------ */
+/* 
+describe('Testing challenge 3', () => {
+  const inventory = [{ name: 'apples', available: true }, { name: 'pears', available: true }, { name: 'oranges', available: false }, { name: 'bananas', available: true }, { name: 'blueberries', available: false }];
 
-const createList = (availableItems) => {
-  // Solution code here...
-};
+  test('It should only add the available items to the list', () => {
+    expect(createList(inventory)).toStrictEqual(['apples', 'pears', 'bananas']);
+    expect(createList(inventory).length).toStrictEqual(3);
+  });
+});  */
+
+
+
+ const createList = (availableItems) => {
+  const groceryList = [];
+  availableItems.forEach(item => {
+    if (item.available === true) {
+    groceryList.push(item.name);
+    }
+  })
+return groceryList;
+}
+
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -78,8 +117,30 @@ Iterate over the array using forEach to determine the output based on several ru
 Return the resulting output array.
 ------------------------------------------------------------------------------------------------ */
 
+/* describe('Testing challenge 4', () => {
+  const inputs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
+
+  test('It should print out messages or numbers', () => {
+    expect(fizzbuzz(inputs)).toStrictEqual([1, 2, 'Fizz', 4, 'Buzz', 'Fizz', 7, 8, 'Fizz', 'Buzz', 11, 'Fizz', 13, 14, 'Fizz Buzz', 16]);
+    expect(fizzbuzz(inputs).length).toStrictEqual(16);
+  });
+}); */
+
+
 const fizzbuzz = (arr) => {
-  // Solution code here...
+  const fizzBuzz = [];
+  arr.forEach(item => {
+    if (item % 3 === 0 && item % 5 === 0) {
+      fizzBuzz.push('Fizz Buzz');
+      } else if (item % 3 === 0) {
+    fizzBuzz.push('Fizz');
+    } else if (item % 5 === 0) {
+      fizzBuzz.push('Buzz');
+    } else {
+      fizzBuzz.push(item);
+    }
+  })
+return fizzBuzz;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -93,20 +154,20 @@ Run your tests from the console: jest challenges-01.test.js
 
 ------------------------------------------------------------------------------------------------ */
 
-xdescribe('Testing challenge 1', () => {
+describe('Testing challenge 1', () => {
   test('It should return the message with all uppercase characters', () => {
     expect(speaker('hello 301 students!', greeting)).toStrictEqual('HELLO 301 STUDENTS!');
   });
 });
 
-xdescribe('Testing challenge 2', () => {
+describe('Testing challenge 2', () => {
   test('It should add the number 8 to the array five times', () => {
     expect(addNumbers(8, [], 5, addValues)).toStrictEqual([8, 8, 8, 8, 8]);
     expect(addNumbers(8, [], 5, addValues).length).toStrictEqual(5);
   });
 });
 
-xdescribe('Testing challenge 3', () => {
+describe('Testing challenge 3', () => {
   const inventory = [{ name: 'apples', available: true }, { name: 'pears', available: true }, { name: 'oranges', available: false }, { name: 'bananas', available: true }, { name: 'blueberries', available: false }];
 
   test('It should only add the available items to the list', () => {
@@ -115,7 +176,7 @@ xdescribe('Testing challenge 3', () => {
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   const inputs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
 
   test('It should print out messages or numbers', () => {
@@ -123,3 +184,4 @@ xdescribe('Testing challenge 4', () => {
     expect(fizzbuzz(inputs).length).toStrictEqual(16);
   });
 });
+
