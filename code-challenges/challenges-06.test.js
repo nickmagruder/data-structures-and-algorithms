@@ -70,8 +70,20 @@ let $ = createSnippetWithJQuery(`
 `);
 
 const templatingWithMustache = () => {
-  // Solution code here...
+  const template = $('#template').html();
+  const mustacheHtml = Mustache.render(template, this)
+  console.log(template, 'template %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%');
+  console.log(mustacheHtml, 'mustache &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&');
+  return mustacheHtml;
 };
+
+/* ------------------------------------------------------------------------------------------------
+CHALLENGE 1 - Review
+Write a function named templatingWithMustache that uses mustache to create the markup templates for each of the characters. Use the snippet as your guide for creating your templates. Return an array of template strings. Note: this function does not need to actually append the markup to the DOM.
+------------------------------------------------------------------------------------------------ */
+
+
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -86,8 +98,10 @@ const courseInfo = { name: 'Code 301', duration: { dayTrack: '4 weeks', eveningT
 };
 
 const getCourseKeys = (obj) => {
-  // Solution code here...
+  let array = Object.keys(obj);
+  return array;
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -95,11 +109,37 @@ CHALLENGE 3
 Write a function named getHouses that returns a new array containing the names of all of the houses in the data set.
 ------------------------------------------------------------------------------------------------ */
 
+/* 
+let characters = [
+  {
+    name: 'Eddard',
+    spouse: 'Catelyn',
+    children: ['Robb', 'Sansa', 'Arya', 'Bran', 'Rickon'],
+    house: 'Stark'
+  }, */
+
+
+
 const getHouses = (arr) => {
   let houses = [];
-  // Solution code here...
+  let i;
+for (i = 0; i < arr.length; i++){
+   houses.push(arr[i].house);
+ }
+  console.log(houses,'houses&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&')
   return houses;
 };
+
+
+/* let i;
+for (i = 0; i < arr.length; i++){
+} */
+
+/* for (let property in arr) {
+  houses.push(property, arr[property]); */
+
+
+
 
 /*------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -114,9 +154,36 @@ hasChildrenValues(characters, 'Sansa') will return false
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenValues = (arr, character) => {
-  // Solution code here...
+  let i;
+for (i = 0; i < arr.length; i++){
+   houses.push(arr[i].house);
+ }
+  console.log(houses,'houses&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&')
+  return houses;
 
 };
+
+
+/* 
+let characters = [
+  {
+    name: 'Eddard',
+    spouse: 'Catelyn',
+    children: ['Robb', 'Sansa', 'Arya', 'Bran', 'Rickon'],
+    house: 'Stark'
+  }, */
+
+xdescribe('Testing challenge 4', () => {
+  test('It should return true for characters that have children', () => {
+    expect(hasChildrenValues(characters, 'Daenarys')).toBeTruthy();
+  });
+
+  test('It should return false to characters who do not have children', () => {
+    expect(hasChildrenValues(characters, 'Sansa')).toBeFalsy();
+  });
+});
+
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5 - Stretch Goal
@@ -199,13 +266,13 @@ xdescribe('Testing challenge 1', () => {
   });
 });
 
-xdescribe('Testing challenge 2', () => {
+describe('Testing challenge 2', () => {
   test('It should return the keys from an object', () => {
     expect(getCourseKeys(courseInfo)).toStrictEqual(['name', 'duration', 'topics', 'finalExam']);
   });
 });
 
-xdescribe('Testing challenge 3', () => {
+describe('Testing challenge 3', () => {
   test('It should return an array of the names of the houses', () => {
     expect(getHouses(characters)).toStrictEqual(['Stark', 'Arryn', 'Lannister', 'Targaryen', 'Tyrell', 'Greyjoy', 'Snow']);
     expect(getHouses(characters).length).toStrictEqual(7);
