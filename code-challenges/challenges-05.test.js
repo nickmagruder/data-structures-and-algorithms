@@ -75,7 +75,7 @@ const howMuchPencil = (str) => {
   let result = [];
   let i;
   for (i = 0; i < str.length; i++) {
-  result.push(str.slice(i));
+    result.push(str.slice(i));
   }
   result.push('');
   return result;
@@ -92,27 +92,12 @@ For example, wordsToCharList('gregor') returns ['g','r','e','g','o','r'].
 const wordsToCharList = (arr) => {
   let result = [];
   let i;
-  for (i = 0; i < str.length; i++) {
-  result.push(str.slice(i));
+  for (i = 0; i < arr.length; i++) {
+    result.push(arr.slice(i, i + 1));
   }
-  result.push('');
   return result;
-
-
 };
 
-
-
-
-
-/* describe('Testing challenge 3', () => {
-  test('It should return an array of individual letters', () => {
-    expect(wordsToCharList('Gregor')).toStrictEqual(['G', 'r', 'e', 'g', 'o', 'r']);
-    expect(wordsToCharList('Gregor').length).toStrictEqual(6);
-    expect(wordsToCharList('hooray')).toStrictEqual(['h', 'o', 'o', 'r', 'a', 'y']);
-    expect(wordsToCharList('')).toStrictEqual([]);
-  });
-}); */
 
 
 /* ------------------------------------------------------------------------------------------------
@@ -156,11 +141,27 @@ const gruffaloCrumble = {
 };
 
 
-const listFoods = (recipe) => {
+/* const listFoods = (recipe) => {
   let result = [];
   // Solution code here...
   return result;
+}; */
+
+const listFoods = (recipe) => {
+  let result = [];
+  let words = [];
+  let i;
+  let x;
+  for (i = 0; i < recipe.ingredients.length; i++) {
+    let ingredient = recipe.ingredients[i];
+    words.push(ingredient.split(' '));
+  }
+  for (x = 0; x < words.length; x++) {
+    result.push((words[x].slice(2)).join(' '));
+  }
+  return result;
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5 - Stretch Goal
@@ -297,7 +298,7 @@ describe('Testing challenge 2', () => {
   });
 });
 
-xdescribe('Testing challenge 3', () => {
+describe('Testing challenge 3', () => {
   test('It should return an array of individual letters', () => {
     expect(wordsToCharList('Gregor')).toStrictEqual(['G', 'r', 'e', 'g', 'o', 'r']);
     expect(wordsToCharList('Gregor').length).toStrictEqual(6);
@@ -306,7 +307,7 @@ xdescribe('Testing challenge 3', () => {
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   test('It should return a list of foods', () => {
     expect(listFoods(gruffaloCrumble)).toStrictEqual(['Gruffalo', 'oats', 'brown sugar', 'flour', 'pure maple syrup', 'chopped nuts', 'baking soda', 'baking powder', 'cinnamon', 'melted butter', 'fresh water']);
     expect(listFoods(gruffaloCrumble).length).toStrictEqual(11);
