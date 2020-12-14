@@ -33,12 +33,13 @@ You may choose to complete this challenge using a for loop, for...in syntax, or 
 For example, twoToThe([1,2,3]) returns [2,4,8] because 2 ^ 1 = 2, 2 ^ 2 = 4, and 2 ^ 3 = 8.
 ------------------------------------------------------------------------------------------------ */
 
-/* const forLoopTwoToThe = (arr) => {
-arr.map((n, i) {
-    return n * 2;
-  }));
-} */
-
+const forLoopTwoToThe = (arr) => {
+const array = arr;
+const ret = array.map(function(n, i) {
+    return (2 ** n);
+  });
+  return ret;
+}
 
 
 /* describe('Testing challenge 2', () => {
@@ -63,8 +64,26 @@ Write a function named forEachTwoToThe that produces the same output as your for
 ------------------------------------------------------------------------------------------------ */
 
 const forEachTwoToThe = (arr) => {
-  // Solution code here...
+  const array = arr;
+  console.log(array);
+  array.forEach(function(n, i) {
+    (2 ** n);
+    });
+    console.log(array, '&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&');
+    return array;
 };
+
+
+xdescribe('Testing challenge 3', () => {
+  test('It should return two raised to the power of the integer', () => {
+    expect(forEachTwoToThe([0, 4, 5])).toStrictEqual([1, 16, 32]);
+    expect(forEachTwoToThe([0, 4, 5]).length).toStrictEqual(3);
+  });
+
+  test('It should return decimals if the integer is negative', () => {
+    expect(forEachTwoToThe([-1, -2, -3])).toStrictEqual([0.5, 0.25, 0.125]);
+  });
+});
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -72,9 +91,18 @@ CHALLENGE 4
 Write a function named mapTwoToThe that produces the same output as your forLoopTwoToThe function from challenge 1 and your forEachTwoToThe function from challenge 2, but uses map instead of a for loop or forEach.
 ------------------------------------------------------------------------------------------------ */
 
+
+
 const mapTwoToThe = (arr) => {
-  // Solution code here...
+  const array = arr;
+  const ret = array.map(function(n, i) {
+      return (2 ** n);
+    });
+    return ret;
 };
+
+
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5 - Stretch Goal
@@ -115,7 +143,7 @@ Note: Because this function is expecting the array of abilities, it will be invo
 extractAbilities(snorlaxAbilities.abilities)
 ------------------------------------------------------------------------------------------------ */
 
-const snorlaxAbilities = {
+/* const snorlaxAbilities = {
   abilities: [
     {
       slot: 3,
@@ -148,7 +176,7 @@ const snorlaxAbilities = {
 
 const extractAbilities = (arr) => {
   // Solution code here...
-};
+}; */
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 8 - Stretch Goal
@@ -215,7 +243,7 @@ describe('Testing challenge 1', () => {
   })
 });
 
-xdescribe('Testing challenge 2', () => {
+describe('Testing challenge 2', () => {
   test('It should return two raised to the power of the integer', () => {
     expect(forLoopTwoToThe([0, 4, 5])).toStrictEqual([1, 16, 32]);
     expect(forLoopTwoToThe([0, 4, 5]).length).toStrictEqual(3);
@@ -237,7 +265,7 @@ xdescribe('Testing challenge 3', () => {
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   test('It should return two raised to the power of the integer', () => {
     expect(mapTwoToThe([0, 4, 5])).toStrictEqual([1, 16, 32]);
     expect(mapTwoToThe([0, 4, 5]).length).toStrictEqual(3);
