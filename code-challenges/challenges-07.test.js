@@ -21,6 +21,7 @@ let $ = createSnippetWithJQuery(`
 
 const addTea = () => {
   $('ul').append('<li>tea</li>');
+  console.log($.html(), '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%');
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -254,7 +255,7 @@ describe('Testing challenge 2', () => {
   });
 });
 
-xdescribe('Testing challenge 3', () => {
+describe('Testing challenge 3', () => {
   test('It should return two raised to the power of the integer', () => {
     expect(forEachTwoToThe([0, 4, 5])).toStrictEqual([1, 16, 32]);
     expect(forEachTwoToThe([0, 4, 5]).length).toStrictEqual(3);
