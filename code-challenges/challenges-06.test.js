@@ -156,7 +156,7 @@ const hasChildrenValues = (arr, character) => {
   return hasChildren;
 };
 
-
+// comment added to create correct pull request
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5 - Stretch Goal
