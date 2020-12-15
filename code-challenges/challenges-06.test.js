@@ -7,11 +7,9 @@ const Mustache = require('mustache');
 /* ------------------------------------------------------------------------------------------------
 
 CHALLENGE 1 - Review
-
 Use the characters data below for all of the challenges except challenge 2.
 
 Write a function named templatingWithMustache that uses mustache to create the markup templates for each of the characters. Use the snippet as your guide for creating your templates. Return an array of template strings. Note: this function does not need to actually append the markup to the DOM.
-
 ------------------------------------------------------------------------------------------------ */
 let characters = [
   {
@@ -70,18 +68,12 @@ let $ = createSnippetWithJQuery(`
 `);
 
 const templatingWithMustache = () => {
-  const template = $('#template').html();
-  const mustacheHtml = Mustache.render(template, this)
-  console.log(template, 'template %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%');
-  console.log(mustacheHtml, 'mustache &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&');
-  return mustacheHtml;
+ return characters.map((character) => {
+    const template = $('#template').html();
+    const mustacheHtml = Mustache.render(template, character)
+    return mustacheHtml;
+  })
 };
-
-/* ------------------------------------------------------------------------------------------------
-CHALLENGE 1 - Review
-Write a function named templatingWithMustache that uses mustache to create the markup templates for each of the characters. Use the snippet as your guide for creating your templates. Return an array of template strings. Note: this function does not need to actually append the markup to the DOM.
------------------------------------------------------------------------------------------------- */
-
 
 
 
@@ -119,14 +111,12 @@ let characters = [
   }, */
 
 
-
 const getHouses = (arr) => {
   let houses = [];
   let i;
 for (i = 0; i < arr.length; i++){
    houses.push(arr[i].house);
  }
-  console.log(houses,'houses&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&')
   return houses;
 };
 
@@ -154,34 +144,17 @@ hasChildrenValues(characters, 'Sansa') will return false
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenValues = (arr, character) => {
-  let i;
-for (i = 0; i < arr.length; i++){
-   houses.push(arr[i].house);
- }
-  console.log(houses,'houses&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&')
-  return houses;
-
+  let hasChildren = false;
+  arr.forEach((char) => {
+    const values = Object.values(char)
+    if (character === values[0]) {
+     if (values[2].length) {
+      hasChildren = true;
+     }
+    }
+  })
+  return hasChildren;
 };
-
-
-/* 
-let characters = [
-  {
-    name: 'Eddard',
-    spouse: 'Catelyn',
-    children: ['Robb', 'Sansa', 'Arya', 'Bran', 'Rickon'],
-    house: 'Stark'
-  }, */
-
-xdescribe('Testing challenge 4', () => {
-  test('It should return true for characters that have children', () => {
-    expect(hasChildrenValues(characters, 'Daenarys')).toBeTruthy();
-  });
-
-  test('It should return false to characters who do not have children', () => {
-    expect(hasChildrenValues(characters, 'Sansa')).toBeFalsy();
-  });
-});
 
 
 
@@ -258,7 +231,7 @@ Run your tests from the console: jest challenges-06.test.js
 
 ------------------------------------------------------------------------------------------------ */
 
-xdescribe('Testing challenge 1', () => {
+describe('Testing challenge 1', () => {
   test('It should return html markup with the character', () => {
     const filledTemplates = templatingWithMustache();
     const $ = cheerio.load(filledTemplates[0]);
@@ -279,7 +252,7 @@ describe('Testing challenge 3', () => {
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   test('It should return true for characters that have children', () => {
     expect(hasChildrenValues(characters, 'Daenarys')).toBeTruthy();
   });
