@@ -22,7 +22,7 @@ const createServer = () => {
 
 
 function sayHello(request, response){
-  // Solution code here...
+  response.send('Hello from the back-end')
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -33,8 +33,10 @@ Write a function named oddValues that, given an array of integers as input, uses
 For example, oddValues([1,2,3]) returns [1,3].
 ------------------------------------------------------------------------------------------------ */
 
+// adapted from stackoverflow: https://stackoverflow.com/questions/45570965/javascript-how-to-return-an-array-with-odd-numbers
+
 const oddValues = (arr) => {
-  // Solution code here...
+  return arr.filter(n => n % 2);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -48,11 +50,9 @@ For example, filterStringsWithVowels('gregor','hound','xyz') returns ['gregor', 
 ------------------------------------------------------------------------------------------------ */
 
 
-const filterStringsWithVowels = (arr) => {
-  // Solution code here...
-};
+const filterStringsWithVowels = (arr) => arr.filter(n => /[aeiou]/.test(n));
 
-
+ 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 
@@ -62,8 +62,10 @@ For example, notInFirstArray([1,2,3], [1,2,3,4]) returns [4].
 ------------------------------------------------------------------------------------------------ */
 
 const notInFirstArray = (forbiddenValues, arr) => {
-  // Solution code here...
-};
+  return arr.filter(n => !forbiddenValues.includes(n));
+}
+
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5 - Stretch Goal
@@ -196,7 +198,7 @@ Run your tests from the console: jest challenges-08.test.js
 
 ------------------------------------------------------------------------------------------------ */
 
-xdescribe('Testing challenge 1', () => {
+describe('Testing challenge 1', () => {
 
   const request = require('supertest');
 
@@ -222,7 +224,7 @@ xdescribe('Testing challenge 1', () => {
   });
 });
 
-xdescribe('Testing challenge 2', () => {
+describe('Testing challenge 2', () => {
   test('It should return an array containing only odd integers', () => {
     expect(oddValues([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])).toStrictEqual([1, 3, 5, 7, 9]);
     expect(oddValues([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]).length).toStrictEqual(5);
@@ -231,7 +233,7 @@ xdescribe('Testing challenge 2', () => {
   });
 });
 
-xdescribe('Testing challenge 3', () => {
+describe('Testing challenge 3', () => {
   test('It should return an array containing only words that have vowels', () => {
     expect(filterStringsWithVowels(['gregor','hound','xyz'])).toStrictEqual(['gregor', 'hound']);
     expect(filterStringsWithVowels(['gregor','hound','xyz']).length).toStrictEqual(2);
@@ -244,7 +246,7 @@ xdescribe('Testing challenge 3', () => {
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   const firstNums = [1, 2, 3];
   const secondNums = [1, 2, 3, 4];
 

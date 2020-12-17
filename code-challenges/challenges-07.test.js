@@ -67,15 +67,16 @@ Write a function named forEachTwoToThe that produces the same output as your for
 const forEachTwoToThe = (arr) => {
   const array = arr;
   console.log(array);
+  const ret = [];
   array.forEach(function(n, i) {
-    (2 ** n);
+    ret.push(2 ** n);
     });
-    console.log(array, '&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&');
-    return array;
+    console.log(ret, '&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&');
+    return ret;
 };
 
 
-xdescribe('Testing challenge 3', () => {
+describe('Testing challenge 3', () => {
   test('It should return two raised to the power of the integer', () => {
     expect(forEachTwoToThe([0, 4, 5])).toStrictEqual([1, 16, 32]);
     expect(forEachTwoToThe([0, 4, 5]).length).toStrictEqual(3);
@@ -255,7 +256,7 @@ describe('Testing challenge 2', () => {
   });
 });
 
-xdescribe('Testing challenge 3', () => {
+describe('Testing challenge 3', () => {
   test('It should return two raised to the power of the integer', () => {
     expect(forEachTwoToThe([0, 4, 5])).toStrictEqual([1, 16, 32]);
     expect(forEachTwoToThe([0, 4, 5]).length).toStrictEqual(3);
