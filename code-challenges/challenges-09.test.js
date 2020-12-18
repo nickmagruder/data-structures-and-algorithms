@@ -160,22 +160,21 @@ const currentEvents = {
 }
 
 function getCurrentEvents(request, response) {
-  let eventArray = currentEvents.news;
-  let returnArray = mapCurrentEvents(eventArray);
+  let returnArray = mapCurrentEvents();
   response.send(returnArray);
 }
 
-const mapCurrentEvents = (eventArray) => {
+function mapCurrentEvents () {
+  let eventArray = currentEvents.news;
   let eventData = eventArray.map(events => {
     return new Event(events);
-  })
-  console.log(eventData);
+  });
   return (eventData);
 }
 
 function Event(obj) {
   this.author = obj.author;
-  this.category = obj.category;
+  this.categories = obj.category;
   this.summary = obj.description;
   this.img_url = obj.image;
   this.date = obj.published;
@@ -183,40 +182,6 @@ function Event(obj) {
 }
 
 
-
-
-/* describe('Testing challenge 1', () => {
-  test('It should return an array of object instances with a key of author', () => {
-    expect(mapCurrentEvents()[0].author).toStrictEqual("go");
-  });
-
-  test('It should return an array of object instances with a key of categories', () => {
-    expect(mapCurrentEvents()[0].categories).toStrictEqual(["world"]);
-  });
-  const request = require('supertest');
-
-  let server;
-
-  beforeEach(function () {
-    server = createServer();
-  });
-
-  afterEach(function () {
-    server.close();
-  });
-
-  test('responds to /events', function testSlash(done) {
-    request(server)
-      .get('/events')
-      .expect(200, done);
-  });
-
-  test('404 everything else', function testPath(done) {
-    request(server)
-      .get('/foo/bar')
-      .expect(404, done);
-  });
-}); */
 
 
 /* ------------------------------------------------------------------------------------------------
@@ -478,7 +443,7 @@ DO NOT CHANGE any of the below code.
 Run your tests from the console: jest challenges-09.test.js
 ------------------------------------------------------------------------------------------------ */
 
-xdescribe('Testing challenge 1', () => {
+describe('Testing challenge 1', () => {
   test('It should return an array of object instances with a key of author', () => {
     expect(mapCurrentEvents()[0].author).toStrictEqual("go");
   });
