@@ -11,18 +11,24 @@ const createServer = () => {
   const app = express();
   const PORT = process.env.PORT || 3001;
   require('dotenv').config();
-  app.get('/hello', req, res);{
+  
+  app.get('/hello', (req, res) => {
     res.send('Hello!')
-  }
-  app.get('/aboutme', req, res); {
+  })
+
+  app.get('/aboutme', (req, res) => {
     res.send('My name is Nick and I am a bike nerd from Texas!')
-  }
-  app.get('/favoritefoods', req, res);{
-    res.send(['Ramen', 'Brussels Sprouts', 'Turkey Sandwiches', 'Pad Kee Mao',])
-  }
+  })
+
+  app.get('/favoritefoods', (req, res) => {
+    res.send(['Ramen', 'Brussels Sprouts', 'Turkey Sandwiches', 'Pad Kee Mao',]
+)
+})
+
   app.use('*', (req, res) => {
     res.send(404)
 })
+
   var server = app.listen(3301, function () {
     var port = server.address().port;
     console.log('Example app listening at port', port);
@@ -30,48 +36,6 @@ const createServer = () => {
   return server;
 };
 
-
-
-// TEST 1 ==============================================
-/* describe('Testing challenge 1', () => {
-
-  const request = require('supertest');
-
-  let server;
-
-  beforeAll(function () {
-    server = createServer();
-  });
-
-  afterAll(function () {
-    server.close();
-  });
-
-  test('responds to /hello', function testHello(done) {
-    request(server)
-      .get('/hello')
-      .expect(200, done);
-  });
-
-  test('responds to /aboutme', function testAboutMe(done) {
-    request(server)
-      .get('/aboutme')
-      .expect(200, done);
-  });
-
-  test('responds to /favoritefoods', function testFavoriteFoods(done) {
-    request(server)
-      .get('/favoritefoods')
-      .expect(200, done);
-  });
-
-  test('responds to /foo', function testNotFound(done) {
-    request(server)
-      .get('/foo')
-      .expect(404, done);
-  });
-}); */
-// TEST 1 ==============================================
 
 
 /* ------------------------------------------------------------------------------------------------
@@ -85,42 +49,15 @@ For example, count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]]) returns 4.
 ------------------------------------------------------------------------------------------------ */
 
 const count = (target, input) => {
-  var total = 0;
-  var inputNumber = target;
-  const arr1 = (input[0]);
-  const arr2 = (input[1]);
-  const arr3 = (input[2]);
-  const arr4 = (arr1.concat(arr2));
-  const arrFull = (arr4.concat(arr3));
-arrFull.reduce((acc, val) => {
-      console.log(val);
-  if (val === inputNumber, total++);
-})
-return total;
+  let targetCount = 0;
+  input.forEach((elem, index) => {
+    elem.forEach((elem2, index2) => {
+      if (target === elem2)
+        targetCount++;
+    })
+  })
+  return targetCount;
 }
-
-// TEST 2 =================================================
-
-/* describe('Testing challenge 2', () => {
-  test('It should return the number of times the input is in the nested arrays', () => {
-    expect(count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]])).toStrictEqual(4);
-    expect(count(3, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]])).toStrictEqual(2);
-    expect(count(12, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]])).toStrictEqual(0);
-  });
-  test('It should work on empty arrays', () => {
-    expect(count(5, [[1, 3, 5, 7, 9], [], [5, 5, 5], [1, 2, 3], []])).toStrictEqual(4);
-    expect(count(5, [])).toStrictEqual(0);
-  });
-}); */
-
-// TEST 2 =================================================
-
-
-
-
-
-
-
 
 
 /* ------------------------------------------------------------------------------------------------
@@ -133,9 +70,25 @@ You may want to use filter, map, or reduce for this problem, but are not require
 For example, [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]] returns 66.
 ------------------------------------------------------------------------------------------------ */
 
+
+
 const totalSum = (input) => {
-  // Solution code here...
-};
+  let totalOfTotals = [];
+  let finalTotal = 0;
+  input.map((element) => {
+    let totalEachArray = element.reduce((sum, innerElement) => {
+      return sum + innerElement;
+    })
+    totalOfTotals.push(totalEachArray);
+  })
+  finalTotal = totalOfTotals.reduce((sum, element) => {
+    return sum + element;
+  })
+  return finalTotal;
+}
+
+
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -149,9 +102,41 @@ This function should then raise 2 to the power of the resulting numbers, returni
 For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 ------------------------------------------------------------------------------------------------ */
 
+/* input = [[10, 20, 5, 4], [5, 6, 7, 9], [1, 10, 3]] */
+
 const divisibleByFiveTwoToThePower = (input) => {
-  // Solution code here...
-};
+    let finalArray = input.map((element) => {
+      return element.filter((elem, index) => ((Number.isInteger(elem)) && (elem % 5 === 0))).map(elem => Math.pow(2, elem));
+    })
+    return finalArray;
+  }
+
+
+/*   const count = (target, input) => {
+    let targetCount = 0;
+    input.forEach((elem, index) => {
+      elem.forEach((elem2, index2) => {
+        if (target === elem2)
+          targetCount++;
+      })
+    })
+    return targetCount;
+  } */
+
+
+ xdescribe('Testing challenge 4', () => {
+  test('It should return numbers divisible by five, then raise two to the power of the resulting numbers', () => {
+    expect(divisibleByFiveTwoToThePower([[10, 20, 5, 4], [5, 6, 7, 9], [1, 10, 3]])).toStrictEqual([[1024, 1048576, 32], [32], [1024]]);
+  });
+
+  test('It should return an empty array if none of the numbers are divisible by five', () => {
+    expect(divisibleByFiveTwoToThePower([[1, 2, 3], [5, 10, 15]])).toStrictEqual([[], [32, 1024, 32768]]);
+  });
+
+  test('It should return an empty array if the values are not numbers', () => {
+    expect(divisibleByFiveTwoToThePower([['one', 'two', 'five'], ['5', '10', '15'], [5]])).toStrictEqual([[], [], [32]]);
+  });
+});
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5 - Stetch Goal
@@ -240,7 +225,7 @@ Run your tests from the console: jest challenges-10.test.js
 
 ------------------------------------------------------------------------------------------------ */
 
-xdescribe('Testing challenge 1', () => {
+describe('Testing challenge 1', () => {
 
   const request = require('supertest');
 
@@ -279,7 +264,7 @@ xdescribe('Testing challenge 1', () => {
   });
 });
 
-xdescribe('Testing challenge 2', () => {
+describe('Testing challenge 2', () => {
   test('It should return the number of times the input is in the nested arrays', () => {
     expect(count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]])).toStrictEqual(4);
     expect(count(3, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]])).toStrictEqual(2);
@@ -291,7 +276,7 @@ xdescribe('Testing challenge 2', () => {
   });
 });
 
-xdescribe('Testing challenge 3', () => {
+describe('Testing challenge 3', () => {
   test('It should add all the numbers in the arrays', () => {
     const nums = [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]];
 
@@ -299,7 +284,7 @@ xdescribe('Testing challenge 3', () => {
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   test('It should return numbers divisible by five, then raise two to the power of the resulting numbers', () => {
     expect(divisibleByFiveTwoToThePower([[10, 20, 5, 4], [5, 6, 7, 9], [1, 10, 3]])).toStrictEqual([[1024, 1048576, 32], [32], [1024]]);
   });

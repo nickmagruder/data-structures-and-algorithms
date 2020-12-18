@@ -35,10 +35,11 @@ If the PIN is four numerical digits long, return true. Otherwise, return false.
 // regexlib.com
 
 const validatePin = (pin) => {
-  // Solution code here...
+  const regex = /\b\d{4}\b/;
+ return (regex.test(pin));
 };
 
-xdescribe('Testing challenge 2', () => {
+/* xdescribe('Testing challenge 2', () => {
   test('It should validate a PIN of exactly four digits', () => {
     expect(validatePin(1234)).toBeTruthy();
     expect(validatePin(123)).toBeFalsy();
@@ -49,7 +50,7 @@ xdescribe('Testing challenge 2', () => {
     expect(validatePin(789)).toBeFalsy();
     expect(validatePin('0000')).toBeTruthy();
   });
-});
+}); */
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -130,7 +131,7 @@ describe('Testing challenge 1', () => {
   });
 });
 
-xdescribe('Testing challenge 2', () => {
+describe('Testing challenge 2', () => {
   test('It should validate a PIN of exactly four digits', () => {
     expect(validatePin(1234)).toBeTruthy();
     expect(validatePin(123)).toBeFalsy();
