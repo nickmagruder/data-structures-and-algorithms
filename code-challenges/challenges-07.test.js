@@ -21,7 +21,6 @@ let $ = createSnippetWithJQuery(`
 
 const addTea = () => {
   $('ul').append('<li>tea</li>');
-  console.log($.html(), '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%');
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -66,12 +65,10 @@ Write a function named forEachTwoToThe that produces the same output as your for
 
 const forEachTwoToThe = (arr) => {
   const array = arr;
-  console.log(array);
   const ret = [];
   array.forEach(function(n, i) {
     ret.push(2 ** n);
     });
-    console.log(ret, '&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&');
     return ret;
 };
 

@@ -68,9 +68,13 @@ Return either true or false.
 Note: if you ever need to validate an email using a regex in practice, the Internet has the actual regex you should use. It's many many lines long.
 ------------------------------------------------------------------------------------------------ */
 
+// Regex adapted from Francescio DAguanmo on RegExLib.com: https://regexlib.com/REDetails.aspx?regexp_id=3122
 const validateEmail = (email) => {
-
+  const regex = /^((([!#$%&'*+\-\/=?^_`{|}~\w])|([!#$%&'*+\-\/=?^_`{|}~\w][!#$%&'*+\-\/=?^_`{|}~\.\w]{0,}[!#$%&'*+\-\/=?^_`{|}~\w]))[@]\w+([-.]\w+)*\.\w+([-.]\w+)*)$/g;
+  return (regex.test(email));
 };
+
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -92,11 +96,14 @@ Your function should include a single regular expression pattern that matches an
 
 Return either true or false.
 ------------------------------------------------------------------------------------------------ */
-
+// regex adapted from Don Johnston on RegExLib: https://regexlib.com/REDetails.aspx?regexp_id=607
 const validatePhoneNumber = (phoneNumber) => {
-  const regex = /a/
-  return regex.test(phoneNumber)
+  const regex = /^(?:\([2-9]\d{2}\)\ ?|[2-9]\d{2}(?:\-?|\ ?))[2-9]\d{2}[- ]?\d{4}$/
+  return (regex.test(phoneNumber));
 };
+
+
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5 - Stretch Goal
@@ -174,7 +181,7 @@ xdescribe('Testing challenge 3', () => {
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   test('It should match the acceptable phone number formats', () => {
     expect(validatePhoneNumber('(555) 555-5555')).toBeTruthy();
     expect(validatePhoneNumber('555 555-5555')).toBeTruthy();
