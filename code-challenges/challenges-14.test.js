@@ -115,18 +115,19 @@ let starWarsData = [{
   gender: 'n/a'
 }];
 
-/* let biggerThanLuke = (arr) => {
-  const larger = arr.filter(n => (n.mass > ));
-};
+let biggerThanLuke = (arr) => {
+  const dash = ' - ';
+  let returnString = '';
+  arr.filter(character => { 
+   if (character.mass > 77) {
+    returnString += (dash + character.name);
+   }
+  })
+  const final = returnString.slice(3, 30);
+  return final;
+}
 
 
-
-xdescribe('Testing challenge 3', () => {
-  test('It should return only characters that are bigger than Luke', () => {
-    expect(biggerThanLuke(starWarsData)).toStrictEqual('Darth Vader - Pex Kylar');
-    expect(biggerThanLuke([])).toStrictEqual('');
-  });
-}); */
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -142,11 +143,18 @@ Here is an example of the input:
 This data could be sorted by name or price.
 ------------------------------------------------------------------------------------------------ */
 
+// adapted from David Brainer and John on Stack Overflow: https://stackoverflow.com/questions/8175093/simple-function-to-sort-an-array-of-objects/8175221#8175221
 const sortBy = (property, arr) => {
-  // Solution code here...
-};
+  return arr.sort(function(a, b){
+    var x = a[property]; var y = b[property];
+    return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+  });
+}
 
-/* ------------------------------------------------------------------------------------------------
+
+
+/* 
+------------------------------------------------------------------------------------------------
 CHALLENGE 5 - Stretch Goal
 
 Write a function that determines if a given URL is secure, beginning with https://
@@ -238,14 +246,14 @@ describe('Testing challenge 2', () => {
   });
 });
 
-xdescribe('Testing challenge 3', () => {
+describe('Testing challenge 3', () => {
   test('It should return only characters that are bigger than Luke', () => {
     expect(biggerThanLuke(starWarsData)).toStrictEqual('Darth Vader - Pex Kylar');
     expect(biggerThanLuke([])).toStrictEqual('');
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   test('It should sort items by a price', () => {
 
     expect(sortBy('price', [

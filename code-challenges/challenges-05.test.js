@@ -48,7 +48,6 @@ const templateWithJQuery = () => {
     $clone.find('p').text(character.eye_color);
     $('main').append($clone);
   })
- console.log($.html());
 }
 
 
