@@ -25,6 +25,33 @@ function sayHello(request, response){
   response.send('Hello from the back-end')
 }
 
+
+describe('Testing challenge 1', () => {
+
+  const request = require('supertest');
+
+  let server;
+
+  beforeEach(function () {
+    server = createServer();
+  });
+
+  afterEach(function () {
+    server.close();
+  });
+
+  test('responds to /hello', function testSlash(done) {
+    request(server)
+      .get('/hello')
+      .expect(200, done);
+  });
+  test('404 everything else', function testPath(done) {
+    request(server)
+      .get('/foo/bar')
+      .expect(404, done);
+  });
+});
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 

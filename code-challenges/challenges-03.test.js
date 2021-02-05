@@ -90,9 +90,18 @@ Write a function named alphabetizeBetter that takes in an array of strings and r
 For example, ['Alphabet', 'alphabet', 'carrot', 'Zebra'] is correctly sorted, and so is ['alphabet', 'Alphabet', 'carrot', 'Zebra'].
 ------------------------------------------------------------------------------------------------ */
 
+
+// adapted from css-tricks: https://css-tricks.com/snippets/javascript/alphabetizing-arrays-objects-and-arrays-of-objects/
 const alphabetizeBetter = (arr) => {
-  // Solution code here...
+/*   arr.map(i => i.toLowerCase()); */
+  arr.sort((a,b) => {
+    return a.toLowerCase().localeCompare(b.toLowerCase());
+  });
+  return arr;
 };
+
+
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6 - Stretch Goal
@@ -266,7 +275,7 @@ describe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should alphabetize without regard to capitalization', () => {
     expect(alphabetizeBetter(['Alice', 'apple', 'alert', 'Average'])).toStrictEqual(['alert', 'Alice', 'apple', 'Average']);
     const ans = alphabetizeBetter(['alphabet', 'Zebra', 'Alphabet', 'carrot']);
@@ -275,7 +284,7 @@ xdescribe('Testing challenge 5', () => {
   });
 });
 
-xdescribe('Testing challenge 6', () => {
+describe('Testing challenge 6', () => {
   test('It should sort items by their price', () => {
     expect(sortByPrice([
       { name: 'Sweatshirt', price: 45 },
