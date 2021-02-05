@@ -120,6 +120,24 @@ const sortByPrice = (arr) => {
   // Solution code here...
 };
 
+
+
+describe('Testing challenge 6', () => {
+  test('It should sort items by their price', () => {
+    expect(sortByPrice([
+      { name: 'Sweatshirt', price: 45 },
+      { name: 'Bookmark', price: 2.50 },
+      { name: 'Tote bag', price: 15 }
+    ])).toStrictEqual([
+      { name: 'Bookmark', price: 2.50 },
+      { name: 'Tote bag', price: 15 },
+      { name: 'Sweatshirt', price: 45 },
+    ]);
+    expect(sortByPrice([{ price: 12 }, { price: 10 }])).toStrictEqual([{ price: 10 }, { price: 12 }]);
+    expect(sortByPrice([])).toStrictEqual([]);
+  });
+});
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
 
