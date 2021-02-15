@@ -244,9 +244,26 @@ For example:
 ------------------------------------------------------------------------------------------------ */
 
 const removeEvenValues = (arr) => {
-
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] == 66 || arr[i] % 2 === 0) {
+    arr.splice(i, 1);
+  }
+}
 };
 
+/* describe('Testing challenge 7', () => {
+  test('It should remove the even numbers from the array', () => {
+    let list = [1, 2, 3, 4, 5, 6];
+    removeEvenValues(list);
+    expect(list).toStrictEqual([1, 3, 5]);
+
+    list = [6, 3, 19, 43, 12, 66, 43];
+    removeEvenValues(list);
+    expect(list).toStrictEqual([3, 19, 43, 43]);
+    expect(list.length).toStrictEqual(4);
+  });
+});
+ */
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 8 - Stretch Goal
 
@@ -263,9 +280,34 @@ removeLastCharacters('Gregor', 9) returns ''
 ------------------------------------------------------------------------------------------------ */
 
 const removeLastCharacters = (str, numberOfCharacters) => {
-  // Solution code here...
+/* console.log(str.length, '1xxXXXXXXXXXXXXXXXXXXXXXXXX'); */
+
+/* let length = str.length;
+let number = numberOfCharacters;
+let index = (length-number-1);
+
+
+str.slice(index, length;
+return str; */
 };
 
+
+
+xdescribe('Testing challenge 8', () => {
+  test('It should shorten the string based on the first argument', () => {
+    expect(removeLastCharacters('Gregor', 2)).toStrictEqual('Greg');
+    expect(removeLastCharacters('Gregor', 2).length).toStrictEqual(4);
+  });
+  test('It should return the complete string when passed a negative number', () => {
+    expect(removeLastCharacters('hello', -1)).toStrictEqual('hello');
+    expect(removeLastCharacters('wowow', -700)).toStrictEqual('wowow');
+  });
+  test('It should return an empty string when called with a number larger than the string length', () => {
+    expect(removeLastCharacters('hello', 12)).toStrictEqual('');
+    expect(removeLastCharacters('', 1)).toStrictEqual('');
+    expect(removeLastCharacters('a', 1)).toStrictEqual('');
+  });
+});
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 9 - Stretch Goal
@@ -275,10 +317,19 @@ Write a function named totalSumCSV that, given a string of comma-separated value
 
 const totalSumCSV = (str) => {
   let total = 0;
-  // Solution code here...
+/*   str.split(',');
+return str.reduce((a, b) => a + b, 0); */
   return total;
 };
 
+
+
+xdescribe('Testing challenge 9', () => {
+  test('It should add up the numbers contained within the string', () => {
+    expect(totalSumCSV('1,4,5,7,2')).toStrictEqual(19);
+    expect(totalSumCSV('147')).toStrictEqual(147);
+  });
+});
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 10 - Stretch Goal
@@ -289,8 +340,23 @@ For example, removeVowels('gregor') returns 'grgr'.
 ------------------------------------------------------------------------------------------------ */
 
 const removeVowels = (str) => {
-  // Solution code here...
+  const newString = str.split('a');
+  const newString2 = newString.split('e');
+  const newString3 = newString2.split('i');
+  const newString4 = newString3.split('o');
+  const newString5 = newString4.split('u');
+  return newString5;
 };
+
+
+xdescribe('Testing challenge 10', () => {
+  test('It should return the string without vowels', () => {
+    expect(removeVowels('gregor')).toStrictEqual('grgr');
+    expect(removeVowels('gregor').length).toStrictEqual(4);
+    expect(removeVowels('asdf')).toStrictEqual('sdf');
+    expect(removeVowels('why')).toStrictEqual('why');
+  });
+});
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 11 - Stretch Goal
