@@ -1,5 +1,40 @@
 # Data Structures and Algorithms
 
+# 401 JavaScript Code Challenges
+
+# Reverse an Array
+- [array-reverse](challenges/arrayReverse/array-erverse.js)
+### Challenge
+- Write a function called reverseArray which takes an array as an argument. Without utilizing any of the built-in methods available to your language, return an array with elements in reversed order.
+
+### Approach
+- array.reverse
+
+###
+```
+function reverseArray(arr) {
+    return arr.reverse();
+};
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Create a copy of this repository
 
 If you have not already created your data-structures-and-algorithms repository, Please follow these steps:
