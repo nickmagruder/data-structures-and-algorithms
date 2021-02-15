@@ -25,6 +25,33 @@ function sayHello(request, response){
   response.send('Hello from the back-end')
 }
 
+
+describe('Testing challenge 1', () => {
+
+  const request = require('supertest');
+
+  let server;
+
+  beforeEach(function () {
+    server = createServer();
+  });
+
+  afterEach(function () {
+    server.close();
+  });
+
+  test('responds to /hello', function testSlash(done) {
+    request(server)
+      .get('/hello')
+      .expect(200, done);
+  });
+  test('404 everything else', function testPath(done) {
+    request(server)
+      .get('/foo/bar')
+      .expect(404, done);
+  });
+});
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 
@@ -107,8 +134,11 @@ const snorlaxData = {
 };
 
 const getBaseStatGreaterThan = (arr, minBaseStat) => {
-  // Solution code here...
+  let filteredStats = arr.filter(data => data.baseStat > minBaseStat)
+  return filteredStats;
 };
+
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6 - Stretch Goal
@@ -119,8 +149,32 @@ For example, getStatName(snorlaxData.stats, 50) will return ['special-defense', 
 ------------------------------------------------------------------------------------------------ */
 
 const getStatName = (arr, minBaseStat) => {
-  // Solution code here...
-};
+  let filteredStats = arr.filter(data => data.baseStat > minBaseStat)
+  console.log(filteredStats, 'xXXXXXXXXXXXXXXXXxxx')
+  return filteredStats;
+}
+
+
+xdescribe('Testing challenge 6', () => {
+  test('It should return the name of the stats that exceed that maximum', () => {
+    expect(getStatName(snorlaxData.stats, 50)).toStrictEqual([ 'special-defense', 'special-attack' ]);
+    expect(getStatName(snorlaxData.stats, 50).length).toStrictEqual(2);
+  });
+
+  test('It should return the name of the stats that exceed that maximum', () => {
+    expect(getStatName(snorlaxData.stats, 120)).toStrictEqual([]);
+    expect(getStatName(snorlaxData.stats, 120).length).toStrictEqual(0);
+  });
+
+  test('It should work for non-snorlax data', () => {
+    expect(getStatName([
+      {baseStat: 10, stat: {name: 'one'}},
+      {baseStat: -85, stat: {name: 'two'}},
+      {baseStat: 0, stat: {name: 'three'}},
+      {baseStat: -50, stat: {name: 'four'}}
+    ], -60)).toStrictEqual(['one', 'three', 'four']);
+  });
+});
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
@@ -270,7 +324,7 @@ describe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should return an array containing the stats that are greater than the input', () => {
     expect(getBaseStatGreaterThan(snorlaxData.stats, 75)).toStrictEqual([ { stat: { url: 'https://pokeapi.co/api/v2/stat/5/', name: 'special-defense' }, effort: 2, baseStat: 110 } ]);
     expect(getBaseStatGreaterThan(snorlaxData.stats, 75).length).toStrictEqual(1);

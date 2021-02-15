@@ -156,6 +156,17 @@ const hasChildrenValues = (arr, character) => {
   return hasChildren;
 };
 
+
+describe('Testing challenge 4', () => {
+  test('It should return true for characters that have children', () => {
+    expect(hasChildrenValues(characters, 'Daenarys')).toBeTruthy();
+  });
+
+  test('It should return false to characters who do not have children', () => {
+    expect(hasChildrenValues(characters, 'Sansa')).toBeFalsy();
+  });
+});
+
 // comment added to create correct pull request
 
 /* ------------------------------------------------------------------------------------------------
@@ -167,8 +178,18 @@ The input and output of this function are the same as the input and output from 
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenEntries = (arr, character) => {
-  // Solution code here...
+  let hasChildren = false;
+  arr.forEach((char) => {
+    const values = Object.values(char)
+    if (character === values[0]) {
+     if (values[2].length) {
+      hasChildren = true;
+     }
+    }
+  })
+  return hasChildren;
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6 - Stretch Goal
@@ -176,9 +197,33 @@ CHALLENGE 6 - Stretch Goal
 Write a function named totalCharacters that takes in an array and returns the number of characters in the array.
 ------------------------------------------------------------------------------------------------ */
 
-const totalCharacters = (arr) => {
-  // Solution code here...
-};
+/* const totalCharacters = (arr) => {
+  let charArray = [];
+  arr.forEach((char) => {
+  let names = Object.values(arr);
+  charArray.push(names.name);
+  charArray.push(names.spouse);
+  charArray.push(names.children);
+  }
+}; */
+
+
+
+
+
+/* let characters = [
+  {
+    name: 'Eddard',
+    spouse: 'Catelyn',
+    children: ['Robb', 'Sansa', 'Arya', 'Bran', 'Rickon'],
+    house: 'Stark'
+  }, */
+
+xdescribe('Testing challenge 6', () => {
+  test('It should return the number of characters in the array', () => {
+    expect(totalCharacters(characters)).toStrictEqual(26);
+  });
+});
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
@@ -192,9 +237,17 @@ For example: [{ house: 'Stark', members: 7 }, { house: 'Arryn', members: 3 }, ..
 
 const houseSize = (arr) => {
   const sizes = [];
-  // Solution code here...
+
   return sizes;
 };
+
+
+xdescribe('Testing challenge 7', () => {
+  test('It should return an object for each house containing the name and size', () => {
+    expect(houseSize(characters)).toStrictEqual([{ house: 'Stark', members: 7 }, { house: 'Arryn', members: 3 }, { house: 'Lannister', members: 5 }, { house: 'Targaryen', members: 5 }, { house: 'Tyrell', members: 4 }, { house: 'Greyjoy', members: 1 }, { house: 'Snow', members: 1 }]);
+    expect(houseSize(characters).length).toStrictEqual(7);
+  });
+});
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 8 - Stretch Goal
@@ -262,7 +315,7 @@ describe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should return true for characters that have children', () => {
     expect(hasChildrenEntries(characters, 'Eddard')).toBeTruthy();
   });
