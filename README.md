@@ -3,7 +3,7 @@
 # 401 JavaScript Code Challenges
 
 # Reverse an Array
-- [array-reverse](challenges/arrayReverse/array-erverse.js)
+[array-reverse](challenges/arrayReverse/array-reverse.js)
 ### Challenge
 - Write a function called reverseArray which takes an array as an argument. Without utilizing any of the built-in methods available to your language, return an array with elements in reversed order.
 
@@ -17,8 +17,15 @@ function reverseArray(arr) {
 };
 ```
 
+# Array Shift
+[array-shift](challenges/arrayShift/array-shift.js)
+
+### Approach
+Get a count of the array, divide it by two and then round up, splice-in the new number at that index
 
 
+### Whiteboard
+[arrayShift](./challanges/arrayShift/arrayShift.jpg)
 
 
 
