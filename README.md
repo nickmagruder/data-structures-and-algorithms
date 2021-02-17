@@ -20,6 +20,12 @@ function reverseArray(arr) {
 # Array Shift
 [array-shift](challenges/arrayShift/array-shift.js)
 
+### Approach
+Get a count of the array, divide it by two and then round up, splice-in the new number at that index
+
+
+### Whiteboard
+[arrayShift](./challanges/arrayShift/arrayShift.jpg)
 
 
 
