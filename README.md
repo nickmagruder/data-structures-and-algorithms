@@ -44,6 +44,24 @@ Get a count of the array, divide it by two and then round up, splice-in the new 
 * [https://www.geeksforgeeks.org/binary-search-in-javascript/](https://www.geeksforgeeks.org/binary-search-in-javascript/)
 
 
+### 05 - Linked Lists
+[Linked Lists](challenges/linkedList/linked-list.js)
+
+### Approach
+* 
+
+### Whiteboard
+![arrayShift](/challenges/arrayBinarySearch/arrayBinarySearch.jpg)
+
+### Resources
+* Collaborated with: Carly Dekock, Jason Quaglia, Jason Dormier
+
+
+
+
+### 06 - LL-Insertions
+
+
 
 
 
