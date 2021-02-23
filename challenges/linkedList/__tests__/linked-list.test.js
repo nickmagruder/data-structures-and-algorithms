@@ -3,7 +3,65 @@
  const linked = require('../linked-list.js'); 
 
 
-describe('empty linked list', () => {
+// Challenge 06 - LL Insertions Tests
+
+ describe('append(val)', () => {
+  it('adds a new node with the given value to the end of the list', () => {
+    const list = new linked.ll();
+    list.head = new linked.node(0);
+
+    list.append(4);
+
+    expect(list.head.next.value).toEqual(4);
+  });
+});
+
+
+
+describe('insertBefore(val, newVal) ', () => {
+  it('adds a new node with the given newVal immediately after the first value node', () => {
+
+    const list = new linked.ll();
+    list.head = new linked.node(0);
+    list.head.next = new linked.node(1);
+
+    list.insertBefore(1, 4);
+
+    expect(list.head.next.value).toEqual(4);
+
+  });
+});
+
+
+
+describe('insertAfter(val, newVal)', () => {
+  it('adds a new node with the given value to the end of the list', () => {
+    const list = new linked.ll();
+
+    list.head = new linked.node(0);
+    list.head.next = new linked.node(1);
+    list.head.next.next = new linked.node(2);
+
+    list.insertAfter(1, 4);
+
+    expect(list.head.next.next.value).toEqual(4);
+
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+// Challenge 05 - Linked-Lists Tests
+xdescribe('empty linked list', () => {
   it('successfully instantiate an empty linked list', () => {
     let linkedListed = new linked.ll();
 
@@ -13,7 +71,7 @@ describe('empty linked list', () => {
 
 
 
-describe('insert into', () => {
+xdescribe('insert into', () => {
   it('Can properly insert into the linked list', () => {
     let insertInto = new linked.ll();
     insertInto.insert('taco');
@@ -24,7 +82,7 @@ describe('insert into', () => {
 
 
 
-describe('Head Points to First Node', () => {
+xdescribe('Head Points to First Node', () => {
   it('The head property will properly point to the first node in the linked list', () => {
 
     const headTest = new linked.ll();
@@ -37,7 +95,7 @@ describe('Head Points to First Node', () => {
 
 
 
-describe('Insert Multiple Nodes', () => {
+xdescribe('Insert Multiple Nodes', () => {
   it('Can properly insert multiple nodes into the linked list', () => {
 
     let multipleInsertTest = new linked.ll();
@@ -54,7 +112,7 @@ describe('Insert Multiple Nodes', () => {
 }); 
 
 
-describe('True when finding a value', () => {
+xdescribe('True when finding a value', () => {
   it('Will return true when finding a value within the linked list that exists', () => {
     
     const findValue = new linked.ll();
@@ -72,7 +130,7 @@ describe('True when finding a value', () => {
 });
 
 
-describe('Return false when no value', () => {
+xdescribe('Return false when no value', () => {
   it('Will return false when searching for a value in the linked list that does not exist', () => {
 
     let findValue = new linked.ll();
@@ -91,7 +149,7 @@ describe('Return false when no value', () => {
 
 
 
-describe('Return collections of all values', () => {
+xdescribe('Return collections of all values', () => {
   it('Can properly return a collection of all the values that exist in the linked list', () => {
 
     const allTest = new linked.ll();

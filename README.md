@@ -44,7 +44,7 @@ Get a count of the array, divide it by two and then round up, splice-in the new 
 * [https://www.geeksforgeeks.org/binary-search-in-javascript/](https://www.geeksforgeeks.org/binary-search-in-javascript/)
 
 
-### 05 - Linked Lists
+# 05 - Linked Lists
 [Linked Lists](challenges/linkedList/linked-list.js)
 
 ### Approach
@@ -59,16 +59,9 @@ Get a count of the array, divide it by two and then round up, splice-in the new 
 
 
 
-### 06 - LL-Insertions
+# 06 - LL-Insertions
+[LL Insertions](challenges/linkedList/linked-list.js)
 
-
-
-
-
-
-
-
-
-
-
+### Resources
+* Collaborated with: Carly Dekock, Jason Quaglia, Jason Dormier, Seid MO
 
