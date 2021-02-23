@@ -29,7 +29,6 @@ class LinkedList {
 
 
 
-
     includes(val) {
 
     let current = this.head;
@@ -49,6 +48,8 @@ class LinkedList {
     }
   }
 
+
+
     toString() {
         let current = this.head;
         let string = ''
@@ -61,27 +62,85 @@ class LinkedList {
         return string;
     }
 
-/* 
+
+
+
+    // adds a new node with the given value to the end of the list
+    append(val) {
+
+      let current = this.head;
+
+      while (current) {
+        
+        if (current.next === null) {
+          current.next = new Node(val);
+          return;
+        }
+
+        current = current.next;
+
+        }
+      }
+
+
+    // add a new node with the given newValue immediately before the first value
     insertBefore(val, newVal) {
 
-    }
+      let current = this.head;
 
+      let newNode = new Node(newVal);
+
+      while (current.next !== null) {
+
+        if(current.value === val) {
+          newNode.next = current;
+          this.head = newNode;
+
+        } else if (current.next.value === val) {
+          let temp = current.next;
+          current.next = newNode;
+          newNode.next = temp;
+          return;
+        }
+
+        current = current.next;
+
+      }
+    }
+    
+    //  add a new node with the given newValue immediately after the first value node
     insertAfter(val, newVal) {
 
-    } */
+      let current = this.head;
 
-}
+      while (current) {
+
+        if(current.value === val) {
+          let newNode = new Node(newVal);
+          let temp = current.next;
+          current.next = newNode;
+          newNode.next = temp;
+          return;
+        }
+
+        current = current.next;
+
+      }
+    }
+  }
 
 
+/*   
+const ll = new LinkedList();
 
-/* const link = new LinkedList();
-
-link.head = new Node(0);
-link.head.next = new Node(1);
-link.head.next.next = new Node(2);
-link.head.next.next.next = new Node(3);
-
-link.includes(2); */
+  ll.head = new Node(5);
+  ll.head.next = new Node(6);
+  ll.head.next.next = new Node(7);
+  ll.head.next.next.next = new Node(8);
+  
+  ll.insertBefore(9, 1);
+  ll.toString();
+  */
 
 
 module.exports = {
