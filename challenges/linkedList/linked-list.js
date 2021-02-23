@@ -127,6 +127,36 @@ class LinkedList {
 
       }
     }
+
+
+    // adapted from stackoverflow: https://stackoverflow.com/questions/2598348/how-to-find-nth-element-from-the-end-of-a-singly-linked-list
+    findKValue(k) {
+
+      let current = this.head;
+
+      if (current === null || k < 1) {
+        return null;
+      }
+
+      let point1 = this.head;
+      let point2 = this.head;
+
+      for (let i = 0; i < k - 1; i++) {
+        if (point2 === null) {
+          return null;
+        }
+        point2 = point2.next;
+      }
+
+      while (point2.next !== null) {
+        point1 = point1.next;
+        point2 = point2.next;
+      }
+
+      console.log(point1.value, 'POINT1.VALUE')
+    return point1.value;
+    }
+
   }
 
 

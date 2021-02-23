@@ -65,3 +65,11 @@ Get a count of the array, divide it by two and then round up, splice-in the new 
 ### Resources
 * Collaborated with: Carly Dekock, Jason Quaglia, Jason Dormier, Seid MO
 
+
+# 07 - LL-Insertions
+[ll-kth-from-end](challenges/linkedList/linked-list.js)
+
+### Resources
+* Collaborated with: Carly Dekock, Jason Quaglia, Jason Dormier, Seid MO
+* Method adapted from stackoverflow: https://stackoverflow.com/questions/2598348/how-to-find-nth-element-from-the-end-of-a-singly-linked-list
+

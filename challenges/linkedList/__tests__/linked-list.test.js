@@ -3,6 +3,106 @@
  const linked = require('../linked-list.js'); 
 
 
+// Chalenge 07 Test - 
+
+
+describe('', () => {
+  it('k is greater than the length of the linked list', () => {
+    
+    const nodeValue = new linked.ll();
+
+    nodeValue.head = new linked.node('x');
+    nodeValue.head.next = new linked.node('y');
+    nodeValue.head.next.next = new linked.node('z');
+    nodeValue.head.next.next.next = new linked.node('a');
+
+    const testValue = nodeValue.findKValue(6);
+
+    expect(testValue).toEqual(null);
+
+  });
+});
+
+
+
+describe('', () => {
+  it('k and the length of the list are the same', () => {
+
+    const nodeValue = new linked.ll();
+
+    nodeValue.head = new linked.node('x');
+    nodeValue.head.next = new linked.node('y');
+    nodeValue.head.next.next = new linked.node('z');
+    nodeValue.head.next.next.next = new linked.node('a');
+
+    const testValue = nodeValue.findKValue(4);
+
+    expect(testValue).toEqual('x');
+
+  });
+});
+
+
+
+describe('', () => {
+  it('k is not a positive integer', () => {
+
+    const nodeValue = new linked.ll();
+
+    nodeValue.head = new linked.node('x');
+    nodeValue.head.next = new linked.node('y');
+    nodeValue.head.next.next = new linked.node('z');
+    nodeValue.head.next.next.next = new linked.node('a');
+
+    const testValue = nodeValue.findKValue(-6);
+
+    expect(testValue).toEqual(null);
+
+  });
+});
+
+
+
+describe('', () => {
+  it('the linked list is of a size 1', () => {
+
+    const nodeValue = new linked.ll();
+
+    nodeValue.head = new linked.node('x');
+
+    const testValue = nodeValue.findKValue(1);
+
+    expect(testValue).toEqual('x');
+
+  });
+});
+
+
+
+describe('', () => {
+  it('“Happy Path" where k is not at the end, but somewhere in the middle of the linked list', () => {
+
+    const nodeValue = new linked.ll();
+
+    nodeValue.head = new linked.node('x');
+    nodeValue.head.next = new linked.node('y');
+    nodeValue.head.next.next = new linked.node('z');
+    nodeValue.head.next.next.next = new linked.node('a');
+    nodeValue.head.next.next.next.next = new linked.node('b');
+
+    const testValue = nodeValue.findKValue(3);
+
+    expect(testValue).toEqual('z');
+
+  });
+});
+
+
+
+
+
+
+
 // Challenge 06 - LL Insertions Tests
 
  describe('append(val)', () => {
@@ -18,7 +118,7 @@
 
 
 
-describe('insertBefore(val, newVal) ', () => {
+describe('insertBefore(val, newVal)', () => {
   it('adds a new node with the given newVal immediately after the first value node', () => {
 
     const list = new linked.ll();
@@ -61,7 +161,7 @@ describe('insertAfter(val, newVal)', () => {
 
 
 // Challenge 05 - Linked-Lists Tests
-xdescribe('empty linked list', () => {
+describe('empty linked list', () => {
   it('successfully instantiate an empty linked list', () => {
     let linkedListed = new linked.ll();
 
@@ -71,7 +171,7 @@ xdescribe('empty linked list', () => {
 
 
 
-xdescribe('insert into', () => {
+describe('insert into', () => {
   it('Can properly insert into the linked list', () => {
     let insertInto = new linked.ll();
     insertInto.insert('taco');
@@ -82,7 +182,7 @@ xdescribe('insert into', () => {
 
 
 
-xdescribe('Head Points to First Node', () => {
+describe('Head Points to First Node', () => {
   it('The head property will properly point to the first node in the linked list', () => {
 
     const headTest = new linked.ll();
@@ -95,7 +195,7 @@ xdescribe('Head Points to First Node', () => {
 
 
 
-xdescribe('Insert Multiple Nodes', () => {
+describe('Insert Multiple Nodes', () => {
   it('Can properly insert multiple nodes into the linked list', () => {
 
     let multipleInsertTest = new linked.ll();
@@ -112,7 +212,7 @@ xdescribe('Insert Multiple Nodes', () => {
 }); 
 
 
-xdescribe('True when finding a value', () => {
+describe('True when finding a value', () => {
   it('Will return true when finding a value within the linked list that exists', () => {
     
     const findValue = new linked.ll();
@@ -130,7 +230,7 @@ xdescribe('True when finding a value', () => {
 });
 
 
-xdescribe('Return false when no value', () => {
+describe('Return false when no value', () => {
   it('Will return false when searching for a value in the linked list that does not exist', () => {
 
     let findValue = new linked.ll();
@@ -149,7 +249,7 @@ xdescribe('Return false when no value', () => {
 
 
 
-xdescribe('Return collections of all values', () => {
+describe('Return collections of all values', () => {
   it('Can properly return a collection of all the values that exist in the linked list', () => {
 
     const allTest = new linked.ll();
