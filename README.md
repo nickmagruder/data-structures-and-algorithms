@@ -73,3 +73,15 @@ Get a count of the array, divide it by two and then round up, splice-in the new 
 * Collaborated with: Carly Dekock, Jason Quaglia, Jason Dormier, Seid MO
 * Method adapted from stackoverflow: https://stackoverflow.com/questions/2598348/how-to-find-nth-element-from-the-end-of-a-singly-linked-list
 
+# 08 - LL-Zip
+[ll-zip](challenges/LLZip/ll-zip.js)
+
+### Challenge
+- Write a function called zipLists which takes two linked lists as arguments. Zip the two linked lists together into one so that the nodes alternate between the two lists and return a reference to the head of the zipped list. Try and keep additional space down to O(1). You have access to the Node class and all the properties on the Linked List class as well as the methods created in previous challenges.
+
+### Approach and Efficiency
+- Big O: space O(n^3)/time O(n^3)
+
+### Resources
+* Collaborated with: Carly Dekock, Jason Quaglia, Jason Dormier, Seid MO
+* TA Assistance from Sarah
