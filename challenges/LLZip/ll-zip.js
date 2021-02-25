@@ -160,21 +160,89 @@ class LinkedList {
 }
 
 
-/*
-const ll = new LinkedList();
+function listZipper(list1, list2) {
 
-  ll.head = new Node(5);
-  ll.head.next = new Node(6);
-  ll.head.next.next = new Node(7);
-  ll.head.next.next.next = new Node(8);
+  const newList = new LinkedList();
 
-  ll.insertBefore(9, 1);
-  ll.toString();
-  */
+  list1 = list1.head;
+  list2 = list2.head;
+
+  newList.head = new Node(list1.value);
+
+  list1 = list1.next;
+
+  while (list1 || list2) {
+
+    if (list1 && list2) {
+
+      newList.append(list2.value);
+      newList.append(list1.value);
+      list2 = list2.next;
+      list1 = list1.next;
+
+    }
+
+    else if (list1 === null && list2) {
+
+      newList.append(list2.value);
+      list2 = list2.next;
+
+    }
+
+    else if (list1 && list2 === null) {
+
+      newList.append(list1.value);
+      list1 = list1.next;
+
+    } else {
+
+      return;
+    }
+  }
+
+  return newList.toString();
+
+};
+
+
+
+
+
 
 
 module.exports = {
-  'll': LinkedList,
-  'node': Node,
+  'LL': LinkedList,
+  'Node': Node,
+  'listZipper': listZipper,
 };
+
+
+
+
+/*
+const ll1 = new LinkedList();
+
+ll.head = new Node(5);
+ll.head.next = new Node(6);
+ll.head.next.next = new Node(7);
+ll.head.next.next.next = new Node(8);
+
+
+const ll2 = new LinkedList();
+
+ll.head = new Node(5);
+ll.head.next = new Node(6);
+ll.head.next.next = new Node(7);
+ll.head.next.next.next = new Node(8);
+*/
+
+
+/*
+ll.insertBefore(9, 1);
+ll.toString();
+*/
+
+
+
+
 
