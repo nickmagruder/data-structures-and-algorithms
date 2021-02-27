@@ -1,6 +1,6 @@
 'use strict'
 
- const linked = require('../linked-list.js'); 
+const linked = require('../linked-list.js');
 
 
 // Chalenge 07 Test - 
@@ -8,7 +8,7 @@
 
 describe('', () => {
   it('k is greater than the length of the linked list', () => {
-    
+
     const nodeValue = new linked.ll();
 
     nodeValue.head = new linked.node('x');
@@ -105,7 +105,7 @@ describe('', () => {
 
 // Challenge 06 - LL Insertions Tests
 
- describe('append(val)', () => {
+describe('append(val)', () => {
   it('adds a new node with the given value to the end of the list', () => {
     const list = new linked.ll();
     list.head = new linked.node(0);
@@ -165,7 +165,7 @@ describe('empty linked list', () => {
   it('successfully instantiate an empty linked list', () => {
     let linkedListed = new linked.ll();
 
-    expect(linkedListed).toEqual({"head": null});
+    expect(linkedListed).toEqual({ "head": null });
   });
 });
 
@@ -209,12 +209,12 @@ describe('Insert Multiple Nodes', () => {
     expect(multipleInsertTest.head.value).toEqual('taco3');
 
   });
-}); 
+});
 
 
 describe('True when finding a value', () => {
   it('Will return true when finding a value within the linked list that exists', () => {
-    
+
     const findValue = new linked.ll();
 
     findValue.head = new linked.node('x');
