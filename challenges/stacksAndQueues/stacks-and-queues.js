@@ -82,9 +82,7 @@ class Queue {
 
   }
 
-  isEmpty() {
-    return this.top === null;
-  }
+
 
   enqueue(node) {
 
@@ -93,8 +91,9 @@ class Queue {
       this.rear = node;
 
     } else {
-      this.rear.next = node;
+
       this.rear = node;
+      this.rear.next = node;
 
     }
   }
@@ -102,13 +101,35 @@ class Queue {
 
   dequeue() {
 
-    let temp = this.front;
+    console.log(this);
 
-    this.front = temp.next;
-    temp.next = null;
+    if (this.isEmpty()) {
+      throw ('error');
 
-    return temp.value;
+    } else {
+      let temp = this.front;
+      this.front = temp.next;
+      temp.next = null;
+      return temp.value;
 
+    }
+  }
+
+
+  peek() {
+
+    if (this.isEmpty()) {
+      throw ('error');
+
+    } else {
+      return this.front.value;
+
+    }
+  }
+
+
+  isEmpty() {
+    return this.top === null;
   }
 
 }
@@ -131,7 +152,7 @@ let queue = new Queue();
 queue.enqueue(nodeA);
 queue.enqueue(nodeB);
 
-console.log(queue); */
+console.log(queue);  */
 
 
 
@@ -141,7 +162,7 @@ console.log(queue); */
 module.exports = {
   'Node': Node,
   'Stack': Stack,
-  'Queue': Queue
+  'Queue': Queue,
 };
 
 
