@@ -17,6 +17,12 @@ function reverseArray(arr) {
 };
 ```
 
+<br/><br/><br/><br/><br/>
+
+
+
+
+
 # 02 -Array Shift
 [array-shift](challenges/arrayShift/array-shift.js)
 
@@ -25,6 +31,10 @@ Get a count of the array, divide it by two and then round up, splice-in the new 
 
 ### Whiteboard
 ![arrayShift](/challenges/arrayShift/arrayShift.jpg)
+
+<br/><br/><br/><br/><br/>
+
+
 
 
 
@@ -44,6 +54,12 @@ Get a count of the array, divide it by two and then round up, splice-in the new 
 * [https://www.geeksforgeeks.org/binary-search-in-javascript/](https://www.geeksforgeeks.org/binary-search-in-javascript/)
 
 
+<br/><br/><br/><br/><br/>
+
+
+
+
+
 # 05 - Linked Lists
 [Linked Lists](challenges/linkedList/linked-list.js)
 
@@ -56,6 +72,9 @@ Get a count of the array, divide it by two and then round up, splice-in the new 
 ### Resources
 * Collaborated with: Carly Dekock, Jason Quaglia, Jason Dormier
 
+<br/><br/><br/><br/><br/>
+
+
 
 
 
@@ -65,6 +84,7 @@ Get a count of the array, divide it by two and then round up, splice-in the new 
 ### Resources
 * Collaborated with: Carly Dekock, Jason Quaglia, Jason Dormier, Seid MO
 
+<br/><br/><br/><br/><br/>
 
 # 07 - LL-Insertions
 [ll-kth-from-end](challenges/linkedList/linked-list.js)
@@ -72,6 +92,12 @@ Get a count of the array, divide it by two and then round up, splice-in the new 
 ### Resources
 * Collaborated with: Carly Dekock, Jason Quaglia, Jason Dormier, Seid MO
 * Method adapted from stackoverflow: https://stackoverflow.com/questions/2598348/how-to-find-nth-element-from-the-end-of-a-singly-linked-list
+
+<br/><br/><br/><br/><br/>
+
+
+
+
 
 # 08 - LL-Zip
 [ll-zip](challenges/LLZip/ll-zip.js)
@@ -85,6 +111,12 @@ Get a count of the array, divide it by two and then round up, splice-in the new 
 ### Resources
 * Collaborated with: Carly Dekock, Jason Quaglia, Jason Dormier, Seid MO
 * TA Assistance from Sarah
+
+<br/><br/><br/><br/><br/>
+
+
+
+
 
 
 # 09 - Stacks & Queues
@@ -111,3 +143,27 @@ Get a count of the array, divide it by two and then round up, splice-in the new 
 
 ### Resources
 * Collaborated with: Carly Dekock, Jason Quaglia, Jason Dormier, William Moreno, Seid MO
+
+<br/><br/><br/><br/><br/>
+
+
+
+
+
+# 11- Stacks & Queues
+[Queue with Stacks](challenges/queue-with-stacks/queue-with-stacks.js)
+
+## Stacks & Queues Challenge
+### Stacks
+- Create a brand new PseudoQueue class. Do not use an existing Queue. Instead, this PseudoQueue class will implement our standard queue interface (the two methods listed below), but will internally only utilize 2 Stack objects. Ensure that you create your class with the following methods:
+
+- enqueue(value) which inserts value into the PseudoQueue, using a first-in, first-out approach.
+- dequeue() which extracts a value from the PseudoQueue, using a first-in, first-out approach.
+
+
+### Approach and Efficiency
+- Enqueue - Space: O(1) - Time: O(1)
+- Dequeue - Space: O(n^2) - Time: O(n^2)
+
+### Resources
+* Collaborated with: Carly Dekock, Jason Quaglia, Jason Dormier, Seid MO

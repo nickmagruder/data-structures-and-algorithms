@@ -202,7 +202,7 @@ function listZipper(list1, list2) {
 
   return newList.toString();
 
-};
+}
 
 
 
