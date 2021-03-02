@@ -167,3 +167,25 @@ Get a count of the array, divide it by two and then round up, splice-in the new 
 
 ### Resources
 * Collaborated with: Carly Dekock, Jason Quaglia, Jason Dormier, Seid MO
+
+<br/><br/><br/><br/><br/>
+
+
+
+
+
+# 12- FIFO
+[FIFO](challenges/fifoAnimalShelter/fifo-animal-shelter.js)
+
+## FIFO Challenge
+- Create a class called AnimalShelter which holds only dogs and cats. The shelter operates using a first-in, first-out approach.
+- Implement the following methods:
+    - enqueue(animal): adds animal to the shelter. animal can be either a dog or a cat object.
+    - dequeue(pref): returns either a dog or a cat. If pref is not "dog" or "cat" then return null.
+
+### Approach and Efficiency
+- Enqueue - Space: O(1) - Time: O(1)
+- Dequeue - Space: O(n^2) - Time: O(n^2)
+
+### Resources
+* Collaborated with: Carly Dekock, Jason Quaglia, Jason Dormier, Seid MO, William Moreno
