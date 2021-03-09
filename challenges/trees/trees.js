@@ -19,38 +19,6 @@ class BinaryTree {
   }
 
 
-
-  add(value) {
-    let addedNode = new Node(value);
-
-    if (this.root === null)
-      this.root = addedNode;
-
-    else
-      this.nodeInsert(this.root, addedNode);
-
-  }
-
-
-
-
-  contains(node, value) {
-
-    if (node === null)
-      return null;
-
-    else if (value < node.value)
-      return this.contains(node.left, value);
-
-    else if (value > node.value)
-      return this.contains(node.right, value);
-
-    else
-      return node;
-  }
-
-
-
   preOrder() {
 
     let array = [];
@@ -114,6 +82,56 @@ class BinaryTree {
 }
 
 
+class BinarySearchTree {
+
+  constructor() {
+    this.root = null;
+  }
+
+
+  add(value) {
+    let addedNode = new Node(value);
+
+    if (this.root === null) {
+      this.root = addedNode;
+      return this;
+    } else {
+      let current = this.root;
+      // eslint-disable-next-line no-constant-condition
+      while (true) {
+        if (value === current.value) return undefined;
+        if (value < current.value) {
+          if (current.left === null) {
+            current.left = addedNode;
+            return this;
+          }
+        } else if (value > current.value){
+          current.right = addedNode;
+          return this;
+        } else {
+          current = current.right;
+        }
+      }
+    }
+  }
+
+
+  contains(node, value) {
+
+    if (node === null)
+      return null;
+
+    else if (value < node.value)
+      return this.contains(node.left, value);
+
+    else if (value > node.value)
+      return this.contains(node.right, value);
+
+    else
+      return node;
+  }
+}
+
 
 const tree = new BinaryTree();
 
@@ -124,6 +142,17 @@ tree.root.left.right = new Node(20);
 tree.root.right = new Node(15);
 tree.root.right.right = new Node(25);
 
+const searchTree = new BinarySearchTree();
+
+searchTree.add(1);
+searchTree.add(7);
+searchTree.add(11);
+searchTree.add(13);
+searchTree.add(22);
+searchTree.add(36);
+searchTree.add(40);
+
+console.log(searchTree);
 
 
 
@@ -138,6 +167,7 @@ console.log(tree.postOrder());
 module.exports = {
 
   'Node': Node,
-  'BinaryTree': BinaryTree
+  'BinaryTree': BinaryTree,
+  'BinarySearchTree': BinarySearchTree
 
 };
