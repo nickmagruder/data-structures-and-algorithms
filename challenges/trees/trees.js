@@ -88,6 +88,26 @@ class BinaryTree {
 
   }
 
+  breadthFirst() {
+
+    let array = [];
+    let queue = [];
+    let node = this.root;
+
+    queue.push(this.root);
+
+    while (queue.length) {
+
+      node = queue.shift();
+      array.push(node.value);
+
+      if (node.left) queue.push(node.left);
+      if (node.right) queue.push(node.right);
+
+    }
+    return array;
+  }
+
 
 }
 
@@ -144,14 +164,14 @@ class BinarySearchTree {
 }
 
 
-const tree = new BinaryTree();
+/* const tree = new BinaryTree();
 
 tree.root = new Node(5);
 tree.root.left = new Node(10);
 tree.root.left.left = new Node(0);
 tree.root.left.right = new Node(20);
 tree.root.right = new Node(15);
-tree.root.right.right = new Node(25);
+tree.root.right.right = new Node(25); */
 
 /* const searchTree = new BinarySearchTree(); */
 
@@ -170,9 +190,11 @@ searchTree.add(40); */
 
 console.log(tree.inOrder());
 
-console.log(tree.postOrder()); 
+console.log(tree.postOrder());
 
 console.log(tree.findMaximum()); */
+
+/* console.log(tree.breadthFirst()); */
 
 
 
