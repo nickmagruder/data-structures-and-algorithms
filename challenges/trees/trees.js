@@ -1,6 +1,7 @@
 'use strict';
 
 // adapted from Geeks for Geeks: https://www.geeksforgeeks.org/implementation-binary-search-tree-javascript/
+// also adapted from Udemy js-algorithms-and-data-structures-masterclass by Colt Steel: https://www.udemy.com/course/js-algorithms-and-data-structures-masterclass/
 
 class Node {
 
@@ -19,65 +20,74 @@ class BinaryTree {
   }
 
 
+
+
   preOrder() {
 
     let array = [];
-
-    const preOrder = (node) => {
-
-      array.push(node.value);
-
-      if (node.left) {
-        preOrder(node.left);
-      }
-      if (node.right) {
-        preOrder(node.right);
-      }
-    };
     let current = this.root;
-    preOrder(current);
+
+    function traverse(node) {
+      array.push(node.value);
+      if (node.left) traverse(node.left);
+      if (node.right) traverse(node.right);
+    }
+
+    traverse(current);
     return array;
   }
+
 
 
   inOrder() {
 
     let array = [];
 
-    const inOrder = (node) => {
+    function traverse(node) {
+      if (node.left) traverse(node.left);
+      if (node.right) traverse(node.right);
+      array.push(node.value);
+    }
 
-      if (node.left) {
-        array.push(node.value);
-        inOrder(node.left);
-      }
-      if (node.right) {
-        inOrder(node.right);
-      }
-    };
-    let current = this.root;
-    inOrder(current);
+    traverse(this.root);
     return array;
   }
+
 
 
   postOrder() {
 
     let array = [];
 
-    const postOrder = (node) => {
+    function traverse(node) {
+      if (node.left) traverse(node.left);
+      array.push(node.value);
+      if (node.right) traverse(node.right);
+    }
 
-      if (node.left) {
-        postOrder(node.left);
-      }
-      if (node.right) {
-        array.push(node.value);
-        postOrder(node.right);
-      }
-    };
-    let current = this.root;
-    postOrder(current);
+    traverse(this.root);
     return array;
   }
+
+
+
+  findMaximum() {
+
+    let maximum = 0;
+    let placeholder;
+
+    function traverse(node) {
+      if (node.left) traverse(node.left);
+      if (node.right) traverse(node.right);
+      placeholder = node.value;
+      if (placeholder >= maximum) maximum = placeholder;
+    }
+
+    traverse(this.root);
+    return maximum;
+
+  }
+
 
 }
 
@@ -105,7 +115,7 @@ class BinarySearchTree {
             current.left = addedNode;
             return this;
           }
-        } else if (value > current.value){
+        } else if (value > current.value) {
           current.right = addedNode;
           return this;
         } else {
@@ -116,19 +126,20 @@ class BinarySearchTree {
   }
 
 
-  contains(node, value) {
-
-    if (node === null)
-      return null;
-
-    else if (value < node.value)
-      return this.contains(node.left, value);
-
-    else if (value > node.value)
-      return this.contains(node.right, value);
-
-    else
-      return node;
+  contains(value) {
+    if (this.root === null) return false;
+    let current = this.root;
+    let found = false;
+    while (current && !found) {
+      if (value < current.value) {
+        current = current.left;
+      } else if (value > current.value) {
+        current = current.right;
+      } else {
+        return true;
+      }
+    }
+    return false;
   }
 }
 
@@ -142,25 +153,26 @@ tree.root.left.right = new Node(20);
 tree.root.right = new Node(15);
 tree.root.right.right = new Node(25);
 
-const searchTree = new BinarySearchTree();
+/* const searchTree = new BinarySearchTree(); */
 
-searchTree.add(1);
+/* searchTree.add(1);
 searchTree.add(7);
 searchTree.add(11);
 searchTree.add(13);
 searchTree.add(22);
 searchTree.add(36);
-searchTree.add(40);
+searchTree.add(40); */
 
-console.log(searchTree);
+/* console.log(searchTree); */
 
 
-
-console.log(tree.preOrder());
+/* console.log(tree.preOrder());
 
 console.log(tree.inOrder());
 
-console.log(tree.postOrder());
+console.log(tree.postOrder()); 
+
+console.log(tree.findMaximum()); */
 
 
 
