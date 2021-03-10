@@ -189,3 +189,36 @@ Get a count of the array, divide it by two and then round up, splice-in the new 
 
 ### Resources
 * Collaborated with: Carly Dekock, Jason Quaglia, Jason Dormier, Seid MO, William Moreno
+
+
+# 15- Trees
+[Trees](challenges/trees/trees.js)
+
+## Trees
+- Create a Node class that has properties for the value stored in the node, the left child node, and the right child node.
+- Create a BinaryTree class
+- Define a method for each of the depth first traversals called preOrder, inOrder, and postOrder which returns an array of the values, ordered appropriately.
+
+- Create a BinarySearchTree class
+- Define a method named add that accepts a value, and adds a new node with that value in the correct location in the binary search tree.
+- Define a method named contains that accepts a value, and returns a boolean indicating whether or not the value is in the tree at least once.
+
+### Approach and Efficiency
+- Find: O(log n)
+- Insert: O(log n)
+
+### Resources
+- Geeks for Geeks: https://www.geeksforgeeks.org/implementation-binary-search-tree-javascript/
+- Udemy js-algorithms-and-data-structures-masterclass by Colt Steel: https://www.udemy.com/course/js-algorithms-and-data-structures-masterclass/
+
+# 16- Find Maximum
+[Trees](challenges/trees/trees.js)
+
+## Find Maximum
+- Write an instance method called find-maximum-value. Without utilizing any of the built-in methods available to your language, return the maximum value stored in the tree. You can assume that the values stored in the Binary Tree will be numeric.
+
+### Approach and Efficiency
+- FindMax: O(log n)
+
+### Resources
+- Udemy js-algorithms-and-data-structures-masterclass by Colt Steel: https://www.udemy.com/course/js-algorithms-and-data-structures-masterclass/
