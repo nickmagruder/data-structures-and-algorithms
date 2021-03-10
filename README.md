@@ -222,3 +222,15 @@ Get a count of the array, divide it by two and then round up, splice-in the new 
 
 ### Resources
 - Udemy js-algorithms-and-data-structures-masterclass by Colt Steel: https://www.udemy.com/course/js-algorithms-and-data-structures-masterclass/
+
+# 17- Breadth
+[Trees](challenges/trees/trees.js)
+
+## Breadth Traversal
+- Write a breadth first traversal method which takes a Binary Tree as its unique input. Without utilizing any of the built-in methods available to your language, traverse the input tree using a Breadth-first approach, and return a list of the values in the tree in the order they were encountered.
+
+### Approach and Efficiency
+- O(log n)
+
+### Resources
+- Udemy js-algorithms-and-data-structures-masterclass by Colt Steel: https://www.udemy.com/course/js-algorithms-and-data-structures-masterclass/
