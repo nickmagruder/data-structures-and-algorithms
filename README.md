@@ -254,3 +254,18 @@ Implement a Hashtable with the following methods:
 ### Resources
 - Udemy js-algorithms-and-data-structures-masterclass by Colt Steel: https://www.udemy.com/course/js-algorithms-and-data-structures-masterclass/
 - Collaborated with Jason Quaglia, Carly Dekock, Jason Dormier, Seid Mohamed
+
+
+# Repeated Word
+[Repeated Word](challenges/repeatedWord/repeated-word.js)
+
+## Challenge
+- Write a function that accepts a lengthy string parameter.
+- Without utilizing any of the built-in library methods available to your language, return the first word to occur more than once in that provided string.
+
+## Approach and Efficiency
+- O(1) Space / O(1) Time
+
+### Resources
+- Udemy js-algorithms-and-data-structures-masterclass by Colt Steel: https://www.udemy.com/course/js-algorithms-and-data-structures-masterclass/
+- Collaborated with Jason Quaglia, Carly Dekock, Jason Dormier, Seid Mohamed
