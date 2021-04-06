@@ -12,4 +12,4 @@ Implement your own Graph. The graph should be represented as an adjacency list, 
 
 ### Resources
 - Udemy js-algorithms-and-data-structures-masterclass by Colt Steel: https://www.udemy.com/course/js-algorithms-and-data-structures-masterclass/
-- Collaborated with Jason Quaglia, Carly Dekock
+- Collaborated with Jason Quaglia, Carly Dekock, William Moreno, Seid Mohamed, Jason Dormier
