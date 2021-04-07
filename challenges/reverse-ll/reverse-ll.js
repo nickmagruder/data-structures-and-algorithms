@@ -16,10 +16,11 @@ module.exports = function reverse(list) {
 }
 
 
-function pokeGET() = {
+/* function pokeGET() = {
   $$.get('https://pokeapi.co/api/v2/pokemon')
-  .then( data => {
-    console.log(data);
-  })
-  .catch( e => console.error(e));
+    .then(data => {
+      console.log(data);
+    })
+    .catch(e => console.error(e));
 }
+ */
